@@ -16,6 +16,14 @@ import java.util.Set;
  * @author UCSD MOOC development team and YOU
  *
  */
+/** 
+* Implement the abstract method for removing an edge 
+*/
+public void implementRemoveEdge(Integer startVertex, Integer endVertex) {
+ // TODO: you will implement this method
+
+}
+
 public class GraphAdjList extends Graph {
 
 

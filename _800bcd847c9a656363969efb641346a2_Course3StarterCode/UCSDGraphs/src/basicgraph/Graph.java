@@ -93,6 +93,21 @@ public abstract class Graph {
 	 * Abstract method implementing adding a new
 	 * edge to the representation of the graph.
 	 */
+	/**
+	 * Removes an edge from the graph between given vertices,
+	 * @param startVertex Index of the start point of the edge to be removed. 
+	 * @param endVertex Index of the end point of the edge to be removed. 
+	 */
+	public void removeEdge(Integer startVertex, Integer endVertex) {
+		implementRemoveEdge(startVertex, endVertex);
+		numEdges--;
+	}
+	
+	/**
+	 * Abstract method for implementing removing an edge from the graph.
+	 */
+	public abstract void implementRemoveEdge(Integer startVertex, Integer endVertex);
+
 	public abstract void implementAddEdge(int v, int w);
 	
 	/**
@@ -122,7 +137,14 @@ public abstract class Graph {
 	 */
 	public List<Integer> degreeSequence() {
 		// XXX: Implement in part 1 of week 2
-		return null;
+		ArrayList<Integer> listOfDegrees = new ArrayList<>();
+		for (int i = 0; i < numVertices; i++) {
+		   listOfDegrees.add(getNeighbors(i).size() + getInNeighbors(i).size());
+		}
+		Collections.sort(listOfDegrees);
+		Collections.reverse(listOfDegrees);
+		return listOfDegrees;
+
 	}
 	
 	/**
